@@ -9,17 +9,17 @@ script:
   - docker run -e CI=true jeffvh/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t jeffvh/docker-multi-client ./client
-  - docker build -t jeffvh/docker-multi-nginx ./nginx
-  - docker build -t jeffvh/docker-multi-server ./server
-  - docker build -t jeffvh/docker-multi-worker ./worker
+  - docker build -t jeffvh/k8s-multi-client ./client
+  - docker build -t jeffvh/k8s-multi-nginx ./nginx
+  - docker build -t jeffvh/k8s-multi-server ./server
+  - docker build -t jeffvh/k8s-multi-worker ./worker
   # Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push jeffvh/docker-multi-client
-  - docker push jeffvh/docker-multi-nginx
-  - docker push jeffvh/docker-multi-server
-  - docker push jeffvh/docker-multi-worker
+  - docker push jeffvh/k8s-multi-client
+  - docker push jeffvh/k8s-multi-nginx
+  - docker push jeffvh/k8s-multi-server
+  - docker push jeffvh/k8s-multi-worker
 
 deploy:
   edge: true

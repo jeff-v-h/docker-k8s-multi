@@ -3,28 +3,28 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "jeffvh/docker-multi-client",
+      "image": "jeffvh/k8s-multi-client",
       "hostname": "client",
       "essential": false,
       "memory": 128
     },
     {
       "name": "server",
-      "image": "jeffvh/docker-multi-server",
+      "image": "jeffvh/k8s-multi-server",
       "hostname": "api",
       "essential": false,
       "memory": 128
     },
     {
       "name": "worker",
-      "image": "jeffvh/docker-multi-worker",
+      "image": "jeffvh/k8s-multi-worker",
       "hostname": "worker",
       "essential": false,
       "memory": 128
     },
     {
       "name": "nginx",
-      "image": "jeffvh/docker-multi-nginx",
+      "image": "jeffvh/k8s-multi-nginx",
       "essential": true,
       "memory": 128,
       "portMappings": [
