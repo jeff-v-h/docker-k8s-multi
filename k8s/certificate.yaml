@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: recaura-com-tls
+spec:
+  secretName: recaura-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: recaura.com
+  dnsNames:
+    - recaura.com
+    - www.recaura.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - recaura.com
+          - www.recaura.com
